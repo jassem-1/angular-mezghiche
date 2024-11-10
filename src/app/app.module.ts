@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ListArticleComponent } from './list-article/list-article.component';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { ArticleService } from './services/article.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ArticleService } from './services/article.service';
     ListProviderComponent,
     AddProviderComponent,
     ListArticleComponent,
-    AddArticleComponent
+    AddArticleComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

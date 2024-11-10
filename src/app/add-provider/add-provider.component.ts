@@ -30,7 +30,7 @@ export class AddProviderComponent implements OnInit {
       this.providerService.createProvider(this.providerForm).subscribe(
         (response) => {
           console.log('Provider added:', response);
-          this.router.navigate(['/listProvider']); // Navigate to provider list after adding
+          this.router.navigate(['/']); // Navigate to provider list after adding
         },
         (error) => {
           console.error('Error adding provider:', error);

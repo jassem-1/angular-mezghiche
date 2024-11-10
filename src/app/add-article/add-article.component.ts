@@ -31,7 +31,7 @@ export class AddArticleComponent implements OnInit {
       this.articleService.createArticle(this.articleForm).subscribe(
         (response) => {
           console.log('Article added:', response);
-          this.router.navigate(['/listArticle']); // Navigate to article list after adding
+          this.router.navigate(['/']); // Navigate to article list after adding
         },
         (error) => {
           console.error('Error adding article:', error);
