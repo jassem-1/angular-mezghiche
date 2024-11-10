@@ -1,0 +1,28 @@
+<div class="max-w-md mx-auto p-4 bg-white rounded shadow">
+    <h2 class="text-xl font-semibold mb-4">Add New Article</h2>
+    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <label for="articleLabel" class="block text-gray-700">Label</label>
+        <input id="articleLabel" type="text" formControlName="articleLabel" 
+               class="w-full px-3 py-2 border rounded" placeholder="Enter label" required />
+      </div>
+      <div class="mb-4">
+        <label for="articlePrice" class="block text-gray-700">Price</label>
+        <input id="articlePrice" type="number" formControlName="articlePrice" 
+               class="w-full px-3 py-2 border rounded" placeholder="Enter price" required />
+      </div>
+      <div class="mb-4">
+        <label for="articlePicture" class="block text-gray-700">Picture URL</label>
+        <input id="articlePicture" type="text" formControlName="articlePicture" 
+               class="w-full px-3 py-2 border rounded" placeholder="Enter picture URL" required />
+      </div>
+      <div class="mb-4">
+        <label for="providerId" class="block text-gray-700">Provider ID</label>
+        <input id="providerId" type="text" formControlName="providerId" 
+               class="w-full px-3 py-2 border rounded" placeholder="Enter provider ID" required />
+      </div>
+      <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600" 
+              [disabled]="articleForm.invalid">Add Article</button>
+    </form>
+  </div>
+  
