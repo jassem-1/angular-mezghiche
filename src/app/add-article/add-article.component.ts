@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ArticleService } from '../services/article.service';
 import { Router } from '@angular/router';
+import { Inject } from '@angular/core';
+import { ProviderService } from '../services/providers.service';
 
 @Component({
   selector: 'app-add-article',
@@ -9,9 +11,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-article.component.css']
 })
 export class AddArticleComponent implements OnInit {
+  providers: any;
   articleForm: FormGroup;
 
   constructor(
+    private providerService: ProviderService,
+
     private fb: FormBuilder,
     private articleService: ArticleService,
     private router: Router
@@ -24,8 +29,15 @@ export class AddArticleComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fetchProviders();
+  }
 
+  fetchProviders() {
+    this.providerService.listProviders().subscribe(data => {
+      this.providers = data;
+    });
+  }
   onSubmit(): void {
     if (this.articleForm.valid) {
       this.articleService.createArticle(this.articleForm).subscribe(
